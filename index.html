@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Private Wealth Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: {
+                100: '#fbf8e6',
+                200: '#f5ecbf',
+                300: '#eedd93',
+                400: '#e5cb64',
+                500: '#dcb63d',
+                600: '#bd922a',
+                700: '#976d22',
+                800: '#7d5821',
+                900: '#684820',
+              },
+              midnight: '#050505',
+              royal: {
+                purple: '#581c87',
+                deep: '#1e1b4b',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            animation: {
+              'spin-slow': 'spin 12s linear infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 3s linear infinite',
+              'burn': 'burn 1.5s forwards',
+              'float': 'float 6s ease-in-out infinite',
+              'glow-pulse': 'glow-pulse 2s ease-in-out infinite alternate',
+              'flare-slide': 'flare-slide 3s infinite linear',
+            },
+            keyframes: {
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' },
+              },
+              burn: {
+                '0%': { opacity: '1', filter: 'brightness(1)' },
+                '50%': { opacity: '0.8', filter: 'brightness(0.5) sepia(1) hue-rotate(-50deg)' },
+                '100%': { opacity: '0', filter: 'brightness(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'glow-pulse': {
+                'from': { boxShadow: '0 0 10px rgba(220, 182, 61, 0.3)' },
+                'to': { boxShadow: '0 0 30px rgba(220, 182, 61, 0.6)' },
+              },
+              'flare-slide': {
+                '0%': { transform: 'translateX(-200%) skewX(-25deg)' },
+                '100%': { transform: 'translateX(300%) skewX(-25deg)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #050505;
+        color: #f8fafc;
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="%23dcb63d" stroke="%23000" stroke-width="0.5"><path d="M19.937 8.68c-.011-.032-.02-.063-.03-.095l-.002-.005-.025-.075c-.006-.017-.006-.018-.013-.035-.045-.11-.089-.22-.128-.335-.023-.066-.051-.128-.073-.195a12.18 12.18 0 0 0-.663-1.48c-.009-.017-.023-.03-.032-.047-.076-.142-.153-.285-.235-.424a.63.63 0 0 0-.022-.037 9.4 9.4 0 0 0-.64-.902c-.066-.084-.132-.167-.202-.246-.026-.028-.057-.052-.084-.08a7.7 7.7 0 0 0-1.896-1.53c-.05-.03-.098-.063-.148-.09a6.6 6.6 0 0 0-2.484-.79c-.066-.008-.13-.024-.197-.03A5.6 5.6 0 0 0 11.95.27a5.5 5.5 0 0 0-4.06 1.762c-1.08 1.08-1.576 2.502-1.748 3.73-.008.058-.027.113-.033.17-.184 1.4-.044 3.01.534 4.56.002.006.002.012.004.018.667 1.782 1.865 3.33 3.398 4.416l-7.9 6.845a.75.75 0 0 0 .98 1.13l7.46-6.463a8.8 8.8 0 0 0 2.29.582.76.76 0 0 0 .15.015 8.9 8.9 0 0 0 3.822-.86 10.6 10.6 0 0 0 2.24-1.295c.036-.027.067-.06.102-.088.355-.285.69-.588 1.004-.91.018-.018.04-.032.057-.05.518-.54 1.02-1.31 1.02-1.31s-1.332.323-2.09.434c-.068.01-.137.012-.205.02-.782.1-1.603.075-2.44-.088-.836-.164-1.684-.46-2.5-.968-.007-.004-.015-.005-.022-.01-.815-.51-1.55-1.196-2.146-2.067a.75.75 0 1 1 1.24-.85c.465.68 1.04 1.22 1.682 1.62.617.384 1.225.592 1.81.707.585.114 1.127.13 1.63.116.502-.014.945-.078 1.303-.16l.128-.03c.66-.152 1.666-.464 1.666-.464s-.302.936-.596 1.487c-.015.028-.025.058-.04.086z"/></svg>') 0 24, auto;
+        overflow-x: hidden;
+      }
+      .gold-gradient {
+        background: linear-gradient(135deg, #dcb63d 0%, #f5ecbf 50%, #bd922a 100%);
+      }
+      .text-gold-gradient {
+        background: linear-gradient(135deg, #dcb63d 0%, #f5ecbf 50%, #bd922a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .text-glow {
+        text-shadow: 0 0 15px rgba(220, 182, 61, 0.6);
+      }
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+      .card-flare {
+        position: relative;
+        overflow: hidden;
+      }
+      .card-flare::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transform: skewX(-25deg);
+        transition: 0.5s;
+      }
+      .card-flare:hover::after {
+        left: 150%;
+      }
+      .kemetic-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 2rem 0;
+      }
+      .kemetic-divider::before, .kemetic-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #dcb63d, transparent);
+      }
+      .kemetic-divider span {
+        padding: 0 1.5rem;
+        color: #dcb63d;
+        font-size: 1.8rem;
+        filter: drop-shadow(0 0 8px #dcb63d);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 4px;
+        border: 2px solid #050505;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #dcb63d;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
